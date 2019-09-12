@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class InimigoController : MonoBehaviour
 {
+
+    [SerializeField] private int vida;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,9 +16,19 @@ public class InimigoController : MonoBehaviour
         agente.SetDestination(posicaoFimDoCaminho);
     }
 
+    public void RecebeDano(int pontosDeDano)
+    {
+        vida -= pontosDeDano;
+
+        if (vida <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
         
     }
+
 }
