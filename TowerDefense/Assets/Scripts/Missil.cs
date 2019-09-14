@@ -6,16 +6,19 @@ public class Missil : MonoBehaviour
 {
     private float velocidade = 5f;
 
-    private GameObject alvo;
+    private InimigoController alvo;
 
     [SerializeField] private int pontosDeDano;
 
     // Start is called before the first frame update
     void Start()
     {
-        alvo = GameObject.Find("Inimigo");
-
         AutoDestroiDepoisDeSegundos(4);
+    }
+
+    public void DefineAlvo(InimigoController inimigo)
+    {
+        alvo = inimigo;
     }
 
     // Update is called once per frame
